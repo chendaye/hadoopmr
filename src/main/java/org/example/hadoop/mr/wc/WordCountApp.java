@@ -56,8 +56,8 @@ public class WordCountApp {
 
 
         // 设置Job对应参数：作业输入和输出的路径
-        FileInputFormat.setInputPaths(job, new Path("/user/hadoop/wc.txt"));
-        FileOutputFormat.setOutputPath(job, new Path("/user/hadoop/wordcount/output2/"));
+        FileInputFormat.setInputPaths(job, new Path("/usr/hadoop/wc.txt"));
+        FileOutputFormat.setOutputPath(job, new Path("/usr/hadoop/wordcount/output2/"));
 
         // 提交job作业
         boolean result = job.waitForCompletion(true);
