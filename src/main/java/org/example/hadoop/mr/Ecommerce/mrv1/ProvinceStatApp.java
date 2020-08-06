@@ -13,7 +13,6 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.example.hadoop.mr.Ecommerce.utils.LogParser;
 
-import javax.jws.Oneway;
 import java.io.IOException;
 import java.util.Map;
 
@@ -22,18 +21,22 @@ import java.util.Map;
  */
 public class ProvinceStatApp {
     public static void main(String[] args) throws Exception {
+        //todo:创建一个 Job
         Configuration configuration = new Configuration();
         Job job = Job.getInstance(configuration);
 
+        //todo:设置 Mapper类 和 Reducer 类 主类
         job.setJarByClass(ProvinceStatApp.class);
         job.setMapperClass(ProvinceStatApp.MyMapper.class);
         job.setReducerClass(ProvinceStatApp.MyReducer.class);
 
+        //todo: 设置 Mapper、Reducer类 输入输出
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(LongWritable.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(LongWritable.class);
 
+        //todo: 设置Job的输入输出
         FileInputFormat.setInputPaths(job, new Path("input/trackinfo_20130721.data"));
         FileOutputFormat.setOutputPath(job, new Path("output/v1/ProvinceStat"));
 
