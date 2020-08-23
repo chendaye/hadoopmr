@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Mapper 类
  */
-public class ClickMapper extends Mapper<LongWritable, Text, Text, Click> {
+public class ClickMapper extends Mapper<LongWritable, Text, Text, ClickWritable> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         // 拆分每一行
@@ -19,6 +19,6 @@ public class ClickMapper extends Mapper<LongWritable, Text, Text, Click> {
         long click = Long.parseLong(items[items.length - 2]);
 
         // 写Context
-        context.write(new Text(ip), new Click(ip, click));
+        context.write(new Text(ip), new ClickWritable(ip, click));
     }
 }

@@ -6,7 +6,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class Click implements Writable {
+public class ClickWritable implements Writable {
     private String ip = ""; // ip
     private long click = 0; // 点击次数
 
@@ -26,9 +26,9 @@ public class Click implements Writable {
         this.click = click;
     }
 
-    public Click() {}
+    public ClickWritable() {}
 
-    public Click(String ip, long click) {
+    public ClickWritable(String ip, long click) {
         this.ip = ip;
         this.click = click;
     }

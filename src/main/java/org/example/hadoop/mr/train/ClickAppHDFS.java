@@ -7,24 +7,24 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class ClickAppRemote {
+public class ClickAppHDFS {
     public static void main(String[] args) throws Exception {
         // 配置job
         System.setProperty("HADOOP_USER_NAME", "hadoop");
         Configuration configuration = new Configuration();
         configuration.set("fs.defaultFS", "hdfs://master:9000");
         Job job = Job.getInstance(configuration);
-        job.setJarByClass(ClickAppRemote.class);
+        job.setJarByClass(ClickAppHDFS.class);
 
         // 设置Mapper
         job.setMapperClass(ClickMapper.class);
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(Click.class);
+        job.setMapOutputValueClass(ClickWritable.class);
 
         // 设置Reducer
         job.setReducerClass(ClickReducer.class);
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Click.class);
+        job.setOutputValueClass(ClickWritable.class);
 
         // 设置分区
         job.setPartitionerClass(ClickPartitioner.class);

@@ -17,12 +17,12 @@ public class ClickAppYarn {
         // 设置Mapper
         job.setMapperClass(ClickMapper.class);
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(Click.class);
+        job.setMapOutputValueClass(ClickWritable.class);
 
         // 设置Reducer
         job.setReducerClass(ClickReducer.class);
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Click.class);
+        job.setOutputValueClass(ClickWritable.class);
 
         // 设置分区
         job.setPartitionerClass(ClickPartitioner.class);

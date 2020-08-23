@@ -8,22 +8,22 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import org.apache.hadoop.io.Text;
 
-public class ClickApp {
+public class ClickAppLocal {
     public static void main(String[] args) throws Exception {
         // 配置job
         Configuration configuration = new Configuration();
         Job job = Job.getInstance(configuration);
-        job.setJarByClass(ClickApp.class);
+        job.setJarByClass(ClickAppLocal.class);
 
         // 设置Mapper
         job.setMapperClass(ClickMapper.class);
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(Click.class);
+        job.setMapOutputValueClass(ClickWritable.class);
 
         // 设置Reducer
         job.setReducerClass(ClickReducer.class);
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Click.class);
+        job.setOutputValueClass(ClickWritable.class);
 
         // 设置分区
         job.setPartitionerClass(ClickPartitioner.class);

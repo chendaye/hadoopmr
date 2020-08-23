@@ -1,0 +1,5 @@
+order_1 p_1 222.8
+order_1 p_5 25.8
+order_2 p_3 522.8
+order_2 p_4 112.4
+order_3 p_1 222.8

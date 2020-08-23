@@ -6,9 +6,9 @@ import org.apache.hadoop.mapreduce.Partitioner;
 /**
  * 根据ip开头划分分区
  */
-public class ClickPartitioner extends Partitioner<Text, Click> {
+public class ClickPartitioner extends Partitioner<Text, ClickWritable> {
     @Override
-    public int getPartition(Text ip, Click click, int numPartitions) {
+    public int getPartition(Text ip, ClickWritable click, int numPartitions) {
         if(ip.toString().startsWith("120.197")){
             return 0;
         }else if (ip.toString().startsWith("120.196")){
