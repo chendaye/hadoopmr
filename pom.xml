@@ -18,7 +18,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <!-- 定义一个hadoop 版本变量 方便后面使用    -->
         <!--    <hadoop.version>2.7.1</hadoop.version>-->
-        <hadoop.version>2.6.0-cdh5.15.2</hadoop.version>
+        <hadoop.version>2.10.1</hadoop.version>
     </properties>
 
 
